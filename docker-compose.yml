@@ -32,7 +32,7 @@ services:
      # Service for building the React app (production build)
     build:
       context: .
-      dockerfile: Dockerfile # Path to your Dockerfile for the production build
+      dockerfile: Dockerfile.prod # Path to your Dockerfile for the production build
     volumes:
       - ./dist:/app/dist # Mounts the local dist directory to the container
     environment:

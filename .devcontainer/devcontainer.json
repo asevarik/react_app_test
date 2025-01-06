@@ -3,19 +3,32 @@
   "dockerComposeFile": [
     "../docker-compose.yml"
   ],
-  "service": "frontend-local",   // Ensure this matches the service name from docker-compose.yml
+  "service": "frontend-local",
+  "runServices": ["frontend-local"],   // Ensure this matches the service name from docker-compose.yml
   "workspaceFolder": "/app",   // Set this to the folder where your code is inside the container
   "customizations": {
       // Configure properties specific to VS Code.
       "vscode": {
         // Add the IDs of extensions you want installed when the container is created.
        "extensions": [
-      "dbaeumer.vscode-eslint",
-      "esbenp.prettier-vscode",
-      "Siris01.catppuccin-theme",
-      "aaron-bond.better-comments",
-      "WallabyJs.console-ninja"
-    ]
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "Siris01.catppuccin-theme",
+        "aaron-bond.better-comments",
+        "WallabyJs.console-ninja",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "ms-azuretools.vscode-docker",
+        "rodrigovallades.es7-react-js-snippets",
+        "dsznajder.es7-react-js-snippets",
+        "ms-vscode.vscode-typescript-next",
+        "ritwickdey.LiveServer",
+        "ms-vsliveshare.vsliveshare",
+        "bradlc.vscode-tailwindcss",
+        "ChakrounAnas.turbo-console-log",
+        "planbcoding.vscode-react-refactor",
+        "styled-components.vscode-styled-components"
+      ]
       },
     
     "settings": {
@@ -24,5 +37,6 @@
     }
   },
   "postCreateCommand": "pnpm install", // Ensure you're installing dependencies
-  "forwardPorts": [5173]  // Forward the port used by your dev server
+  "forwardPorts": [5173],  // Forward the port used by your dev server
+  "shutdownAction": "stopCompose"
 }
