@@ -1,22 +1,28 @@
 {
-    "name": "Vite React Dev Container",
-    "build": {
-      "dockerComposeFile":["../docker-compose.yml"]
-    },
-    "context": ".",
-    "forwardPorts": [5173],
-    "postCreateCommand": "pnpm install",
-    "customizations": {
-      "settings": {
-        "terminal.integrated.defaultProfile.linux": "bash",
-        "editor.formatOnSave": true
+  "name": "React Dev Container",
+  "dockerComposeFile": [
+    "../docker-compose.yml"
+  ],
+  "service": "frontend-local",   // Ensure this matches the service name from docker-compose.yml
+  "workspaceFolder": "/app",   // Set this to the folder where your code is inside the container
+  "customizations": {
+      // Configure properties specific to VS Code.
+      "vscode": {
+        // Add the IDs of extensions you want installed when the container is created.
+       "extensions": [
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "Siris01.catppuccin-theme",
+      "aaron-bond.better-comments",
+      "WallabyJs.console-ninja"
+    ]
       },
-      "extensions": [
-        "dbaeumer.vscode-eslint",
-        "esbenp.prettier-vscode",
-        "mhutchie.git-graph",
-        "streetsidesoftware.code-spell-checker"
-      ]
+    
+    "settings": {
+      "editor.formatOnSave": true
+    
     }
-  }
-  
+  },
+  "postCreateCommand": "pnpm install", // Ensure you're installing dependencies
+  "forwardPorts": [5173]  // Forward the port used by your dev server
+}

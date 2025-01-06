@@ -19,11 +19,12 @@ function App() {
       </div>
       <h1>Vite + REACT</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => console.log("hello htere")
+        }>
           count is {count}
         </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR {BASE_URL}
+          Edit <code>src/App.tsx</code> and save to test HMR Hello  {BASE_URL}
         </p>
       </div>
       <p className="read-the-docs">
