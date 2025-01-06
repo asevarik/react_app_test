@@ -1,0 +1,22 @@
+{
+    "name": "Vite React Dev Container",
+    "build": {
+      "dockerComposeFile":["../docker-compose.yml"]
+    },
+    "context": ".",
+    "forwardPorts": [5173],
+    "postCreateCommand": "pnpm install",
+    "customizations": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "mhutchie.git-graph",
+        "streetsidesoftware.code-spell-checker"
+      ]
+    }
+  }
+  

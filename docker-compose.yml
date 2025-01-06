@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  frontend-dev:
+    build:
+      context: .  # Path to Dockerfile.dev
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"  # Map Vite dev server port
+    volumes:
+      - .:/app       # Mount local directory for live reloading
+      - /app/node_modules  # Prevent overwriting node_modules
+    environment:
+      NODE_ENV: development
+    env_file:
+      - .env.local
+  frontend-prod:
+    build:
+      context: .  # Path to Dockerfile
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"  # Map port 80 for production
+    environment:
+      NODE_ENV: production
+    env_file:
+      - .env.prod

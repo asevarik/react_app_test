@@ -1,0 +1,20 @@
+# Use the official Node.js image
+FROM node:18-alpine
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy package.json and lock file
+COPY package.json  pnpm-lock.yaml ./
+
+# Install dependencies using pnpm
+RUN npm install -g pnpm && pnpm install
+
+# Copy the rest of the project files
+COPY . .
+
+# Expose the port on which the Vite app will run
+EXPOSE 5173
+
+# Start the Vite development server
+CMD ["pnpm", "run", "dev", "--host", "0.0.0.0"]
